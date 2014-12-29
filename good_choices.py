@@ -2,6 +2,9 @@ import inspect
 import six
 
 
+__all__ = ['Choices']
+
+
 class ChoicesMeta(type):
     def __new__(cls, name, bases, attrs):
         ch = list()
@@ -22,20 +25,4 @@ class ChoicesMeta(type):
 @six.add_metaclass(ChoicesMeta)
 class Choices(object):
     pass
-
-
-if __name__ == '__main__':
-    class Ch(Choices):
-        A = 1, 'a'
-        C = 3, 'c'
-        B = 2, 'b'
-    assert Ch.choices == [(1, 'a'), (2, 'b'), (3, 'c')]
-    assert Ch.A == 1
-
-    class Ch(Choices):
-        A = 'X'
-        B = 'Y'
-        C = 'Z'
-    assert Ch.choices == [('X', 'X'), ('Y', 'Y'), ('Z', 'Z')]
-    assert Ch.C == 'Z'
 
