@@ -2,7 +2,9 @@ import inspect
 import six
 
 
-__all__ = ['Choices']
+__all__ = ['Choices', 'VERSION']
+
+VERSION = (1, 0)
 
 
 class ChoicesMeta(type):
