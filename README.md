@@ -22,3 +22,14 @@ class Order(models.Model):
         choices=Status.choices,
         default=Status.PLACED)
 ```
+
+Changelog
+---------
+
+### 1.1
+
+* implemented iterator protocol
+
+### 1.0
+
+* Choices class

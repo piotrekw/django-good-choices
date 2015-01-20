@@ -4,7 +4,7 @@ import six
 
 __all__ = ['Choices', 'VERSION']
 
-VERSION = (1, 0)
+VERSION = (1, 1)
 
 
 class ChoicesMeta(type):
@@ -22,6 +22,10 @@ class ChoicesMeta(type):
         attrs.update(updated_attrs)
         attrs['choices'] = sorted(ch, key=lambda c: c[0])
         return super(ChoicesMeta, cls).__new__(cls, name, bases, attrs)
+
+    def __iter__(self):
+        for index, label in self.choices:
+            yield index
 
 
 @six.add_metaclass(ChoicesMeta)

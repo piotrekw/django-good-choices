@@ -26,3 +26,13 @@ def test_define_only_values():
         B = 'Y'
         C = 'Z'
     assert Ch.choices == [('X', 'X'), ('Y', 'Y'), ('Z', 'Z')]
+
+
+def test_in():
+    class Ch(Choices):
+        A = 1, 'a'
+        B = 2, 'b'
+        C = 3, 'c'
+    assert 1 in Ch
+    assert 4 not in Ch
+    assert 'a' not in Ch
