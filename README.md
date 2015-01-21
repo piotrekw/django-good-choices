@@ -26,6 +26,10 @@ class Order(models.Model):
 Changelog
 ---------
 
+### 1.2
+
+* add ``labels`` attribute
+
 ### 1.1
 
 * implemented iterator protocol

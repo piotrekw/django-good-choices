@@ -4,13 +4,14 @@ import six
 
 __all__ = ['Choices', 'VERSION']
 
-VERSION = (1, 1)
+VERSION = (1, 2)
 
 
 class ChoicesMeta(type):
     def __new__(cls, name, bases, attrs):
         ch = list()
         updated_attrs = dict()
+        labels = {}
         for name, value in six.iteritems(attrs):
             if not name.startswith('_'):
                 try:
@@ -18,9 +19,11 @@ class ChoicesMeta(type):
                 except ValueError:
                     index = label = value
                 ch.append((index, label))
+                labels[index] = label
                 updated_attrs[name] = index
         attrs.update(updated_attrs)
         attrs['choices'] = sorted(ch, key=lambda c: c[0])
+        attrs['labels'] = labels
         return super(ChoicesMeta, cls).__new__(cls, name, bases, attrs)
 
     def __iter__(self):
