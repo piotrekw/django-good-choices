@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name = 'django-good-choices',
-    version = '1.2',
+    version = '1.3',
     description = 'Simple and convenient approach to "choices" in Django',
     author = 'Piotr Wasilewski',
     author_email = 'wasilewski.piotrek@gmail.com',

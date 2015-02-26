@@ -26,6 +26,10 @@ class Order(models.Model):
 Changelog
 ---------
 
+### 1.3
+
+* fix name in metaclass
+
 ### 1.2
 
 * add ``labels`` attribute
